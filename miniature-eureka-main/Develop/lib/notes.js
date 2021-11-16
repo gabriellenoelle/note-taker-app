@@ -17,4 +17,22 @@ function filterByQuery(query, notesArray) {
       );
     });
   }
+  return filteredResults;
 }
+
+// this function creates a new note and stores it in db.json
+
+function createNewNote(body, notesArray) {
+  const note = body;
+  notesArray.push(note);
+  fs.writeFileSync(
+    path.join(__dirname, "../db/db.json"),
+    JSON.stringify({ notesArray }, null, 2)
+  );
+  return note;
+}
+
+module.exports = {
+  filterByQuery,
+  createNewNote,
+};
