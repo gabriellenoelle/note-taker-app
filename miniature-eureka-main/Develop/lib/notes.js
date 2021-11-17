@@ -24,6 +24,11 @@ function filterByQuery(query, notesArray) {
 
 function createNewNote(body, notesArray) {
   const note = body;
+  if (!Array.isArray(notesArray)) notesArray = [];
+  if (notesArray.length === 0) notesArray.push(0);
+  body.id = notesArray[0];
+  notesArray[0]++;
+
   notesArray.push(note);
   fs.writeFileSync(
     path.join(__dirname, "../db/db.json"),
