@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/gabriellenoelle/note-taker-app#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node": "^15.14.0",
+    "nodemon": "^2.0.15"
   }
 }
