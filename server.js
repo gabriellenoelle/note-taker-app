@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-app.get("/api/notes", (req, res) => {
+app.get("/api/Develop/db", (req, res) => {
   res.json(allNotes.slice(1));
   path.join(__dirname, "./miniature-eureka-main/Develop/db/db.json");
 });
@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 });
 
 // this html route returns the notes.html file
-app.get("/notes", (req, res) => {
+app.get("/Develop/db", (req, res) => {
   res.sendFile(
     path.join(__dirname, "./miniature-eureka-main/Develop/public/notes.html")
   );
@@ -53,7 +53,7 @@ function createNewNote(body, notesArray) {
 
   notesArray.push(newNote);
   fs.writeFileSync(
-    path.join(__dirname, "./db/db.json"),
+    path.join(__dirname, "./Develop/db/db.json"),
     JSON.stringify(notesArray, null, 2)
   );
   return newNote;
@@ -61,7 +61,7 @@ function createNewNote(body, notesArray) {
 
 //this function receives the newly created note to save on the req body,
 //adds to json file, and returns new now to the client
-app.post("/api/notes", (req, res) => {
+app.post("/api/Develop/db/db.json", (req, res) => {
   const newNote = createNewNote(req.body, allNotes);
   res.json(newNote);
 });
